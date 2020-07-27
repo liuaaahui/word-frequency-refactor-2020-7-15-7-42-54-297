@@ -5,6 +5,7 @@ public class WordFrequencyGame {
     private static final String SPACE_MATCH = "\\s+";
     private static final String NEXT_LINE = "\n";
     private static final String SPACE_SYMBOL = " ";
+    private static final String CALCULATE_ERROR = "Calculate Error";
 
     public String getResult(String inputStr) {
 
@@ -43,7 +44,7 @@ public class WordFrequencyGame {
                 }
                 return joiner.toString();
             } catch (Exception e) {
-                return "Calculate Error";
+                return CALCULATE_ERROR;
             }
         }
     }
