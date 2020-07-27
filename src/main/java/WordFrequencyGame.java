@@ -7,16 +7,16 @@ public class WordFrequencyGame {
     private static final String SPACE_SYMBOL = " ";
     private static final String CALCULATE_ERROR = "Calculate Error";
 
-    public String getResult(String inputStr) {
+    public String getResult(String sentence) {
 
 
-        if (inputStr.split(SPACE_MATCH).length == 1) {
-            return inputStr + " 1";
+        if (sentence.split(SPACE_MATCH).length == 1) {
+            return sentence + " 1";
         } else {
 
             try {
 
-                String[] arr = inputStr.split(SPACE_MATCH);
+                String[] arr = sentence.split(SPACE_MATCH);
 
                 List<Input> inputList = new ArrayList<>();
                 for (String s : arr) {
