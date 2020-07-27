@@ -18,25 +18,25 @@ public class WordFrequencyGame {
 
                 String[] words = sentence.split(SPACE_MATCH);
 
-                List<Word> inputList = new ArrayList<>();
+                List<Word> wordInfo = new ArrayList<>();
                 for (String word : words) {
                     Word input = new Word(word, 1);
-                    inputList.add(input);
+                    wordInfo.add(input);
                 }
 
-                Map<String, List<Word>> map = getListMap(inputList);
+                Map<String, List<Word>> map = getListMap(wordInfo);
 
                 List<Word> list = new ArrayList<>();
                 for (Map.Entry<String, List<Word>> entry : map.entrySet()) {
                     Word input = new Word(entry.getKey(), entry.getValue().size());
                     list.add(input);
                 }
-                inputList = list;
+                wordInfo = list;
 
-                inputList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
+                wordInfo.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
 
                 StringJoiner joiner = new StringJoiner(NEXT_LINE);
-                for (Word w : inputList) {
+                for (Word w : wordInfo) {
                     String s = w.getValue() + SPACE_SYMBOL + w.getWordCount();
                     joiner.add(s);
                 }
@@ -47,9 +47,9 @@ public class WordFrequencyGame {
         }
     }
 
-    private Map<String, List<Word>> getListMap(List<Word> inputList) {
+    private Map<String, List<Word>> getListMap(List<Word> wordInfo) {
         Map<String, List<Word>> map = new HashMap<>();
-        for (Word input : inputList) {
+        for (Word input : wordInfo) {
             if (!map.containsKey(input.getValue())) {
                 ArrayList words = new ArrayList<>();
                 words.add(input);
