@@ -16,10 +16,10 @@ public class WordFrequencyGame {
 
             try {
 
-                String[] arr = sentence.split(SPACE_MATCH);
+                String[] words = sentence.split(SPACE_MATCH);
 
                 List<Input> inputList = new ArrayList<>();
-                for (String s : arr) {
+                for (String s : words) {
                     Input input = new Input(s, 1);
                     inputList.add(input);
                 }
@@ -51,9 +51,9 @@ public class WordFrequencyGame {
         Map<String, List<Input>> map = new HashMap<>();
         for (Input input : inputList) {
             if (!map.containsKey(input.getValue())) {
-                ArrayList arr = new ArrayList<>();
-                arr.add(input);
-                map.put(input.getValue(), arr);
+                ArrayList words = new ArrayList<>();
+                words.add(input);
+                map.put(input.getValue(), words);
             } else {
                 map.get(input.getValue()).add(input);
             }
