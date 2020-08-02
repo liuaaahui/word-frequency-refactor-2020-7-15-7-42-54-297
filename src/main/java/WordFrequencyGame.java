@@ -8,32 +8,33 @@ public class WordFrequencyGame {
     private static final String CALCULATE_ERROR = "Calculate Error";
 
     public String getResult(String sentence) {
-        
             try {
-
-                String[] words = sentence.split(SPACE_MATCH);
-
-                List<Word> wordInfo = new ArrayList<>();
-                for (String word : words) {
-                    Word input = new Word(word, 1);
-                    wordInfo.add(input);
-                }
-
-                Map<String, List<Word>> wordMap = getListMap(wordInfo);
-
-                List<Word> list = new ArrayList<>();
-                for (Map.Entry<String, List<Word>> entry : wordMap.entrySet()) {
-                    Word input = new Word(entry.getKey(), entry.getValue().size());
-                    list.add(input);
-                }
-                wordInfo = list;
-
+                List<Word> wordInfo = handelSentence(sentence);
                 wordInfo.sort((firstWordInfo, secondWordInfo) -> secondWordInfo.getWordCount() - firstWordInfo.getWordCount());
-
                 return gerenateResult(wordInfo);
             } catch (Exception e) {
                 return CALCULATE_ERROR;
             }
+    }
+
+    private List<Word> handelSentence(String sentence) {
+        String[] words = sentence.split(SPACE_MATCH);
+
+        List<Word> wordInfo = new ArrayList<>();
+        for (String word : words) {
+            Word input = new Word(word, 1);
+            wordInfo.add(input);
+        }
+
+        Map<String, List<Word>> wordMap = getListMap(wordInfo);
+
+        List<Word> list = new ArrayList<>();
+        for (Map.Entry<String, List<Word>> entry : wordMap.entrySet()) {
+            Word input = new Word(entry.getKey(), entry.getValue().size());
+            list.add(input);
+        }
+        wordInfo = list;
+        return wordInfo;
     }
 
     private String gerenateResult(List<Word> wordInfo) {
