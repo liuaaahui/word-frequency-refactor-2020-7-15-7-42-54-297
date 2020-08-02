@@ -8,12 +8,7 @@ public class WordFrequencyGame {
     private static final String CALCULATE_ERROR = "Calculate Error";
 
     public String getResult(String sentence) {
-
-
-        if (sentence.split(SPACE_MATCH).length == 1) {
-            return sentence + " 1";
-        } else {
-
+        
             try {
 
                 String[] words = sentence.split(SPACE_MATCH);
@@ -39,7 +34,6 @@ public class WordFrequencyGame {
             } catch (Exception e) {
                 return CALCULATE_ERROR;
             }
-        }
     }
 
     private String gerenateResult(List<Word> wordInfo) {
